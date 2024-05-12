@@ -1,0 +1,7 @@
+.github
+.husky
+.vscode
+documentos
+package-lock.json
+node_modules
+.next
