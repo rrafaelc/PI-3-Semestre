@@ -1,5 +1,6 @@
 .github
 .vscode
 documentos
+respire-bem/package-lock.json
 respire-bem/node_modules
 respire-bem/.next
