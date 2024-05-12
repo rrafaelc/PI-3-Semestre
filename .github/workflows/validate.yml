@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: Set git to use CRLF
@@ -17,7 +17,7 @@ jobs:
           git config --global core.autocrlf true
           git config --global core.eol crlf
       - name: Use Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '20.11.0'        
       - name: Install dependencies
