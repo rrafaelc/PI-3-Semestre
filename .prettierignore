@@ -1,6 +1,7 @@
 .github
+.husky
 .vscode
 documentos
-respire-bem/package-lock.json
-respire-bem/node_modules
-respire-bem/.next
+package-lock.json
+node_modules
+.next
