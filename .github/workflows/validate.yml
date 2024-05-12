@@ -1,11 +1,10 @@
-name: Continuous Integration
+name: Validation
 
 on:
-  push:
   pull_request:
 
 jobs:
-  build:
+  validation:
     runs-on: ubuntu-latest
 
     steps:
