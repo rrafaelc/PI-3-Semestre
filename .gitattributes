@@ -1,3 +1,5 @@
 * text=auto
 
 .husky/* text eol=lf
+
+src/** text eol=crlf
