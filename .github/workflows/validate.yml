@@ -12,6 +12,8 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+      - name: Set CRLF autocrlf
+        run: git config --global core.autocrlf true
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
