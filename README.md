@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+1. **Instalar o Node.js LTS:**
 
-## Getting Started
+   - Antes de começar, certifique-se de ter o Node.js LTS instalado em seu sistema. Você pode baixar a versão LTS mais recente em [nodejs.org](https://nodejs.org/).
 
-First, run the development server:
+2. **Instalar as dependências:**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+   - Abra o terminal (prompt de comando) no diretório do seu projeto.
+   - Execute o seguinte comando para instalar as dependências do projeto:
+     ```bash
+     npm install
+     ```
+     Isso instalará todas as bibliotecas e pacotes necessários para o projeto.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. **Rodar o servidor de desenvolvimento:**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+   - Após a instalação das dependências, execute o seguinte comando para iniciar o servidor de desenvolvimento:
+     ```bash
+     npm run dev
+     ```
+     Este comando irá iniciar um servidor local e disponibilizará o seu projeto em [http://localhost:3000](http://localhost:3000). Você pode acessar essa URL no seu navegador para visualizar a aplicação em execução.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+4. **Editar a página:**
 
-## Learn More
+   - Para editar a página inicial do seu projeto, abra o arquivo `app/page.tsx` no seu editor de código preferido.
+   - Faça as alterações desejadas no arquivo `page.tsx`. O Next.js irá atualizar automaticamente a página no navegador conforme você edita o arquivo.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+5. **Aprender mais sobre o Next.js:**
+   - Para aprender mais sobre o Next.js, você pode consultar a [documentação oficial do Next.js](https://nextjs.org/docs) e o [tutorial interativo do Next.js](https://nextjs.org/learn).
