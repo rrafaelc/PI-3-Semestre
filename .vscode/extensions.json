@@ -4,6 +4,9 @@
     "esbenp.prettier-vscode",
     "editorconfig.editorconfig",
     "bradlc.vscode-tailwindcss",
-    "mikestead.dotenv"
+    "mikestead.dotenv",
+    "prisma.prisma",
+    "dsznajder.es7-react-js-snippets",
+    "ms-vscode-remote.remote-wsl"
   ]
 }
