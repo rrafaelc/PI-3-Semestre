@@ -1,7 +1,7 @@
 import Head from 'next/head';
-import Header from './components/Header';
+import Header from './components/Header'; // Certifique-se de que este é o caminho correto
 
-const Home: React.FC = () => {
+export default function Home() {
   return (
     <div>
       <Head>
@@ -13,6 +13,4 @@ const Home: React.FC = () => {
       </main>
     </div>
   );
-};
-
-export default Home;
+}

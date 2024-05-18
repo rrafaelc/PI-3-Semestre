@@ -37,10 +37,10 @@ const Header: React.FC = () => {
           className={`${styles.iconButton} ${isButtonClicked ? styles.iconButtonClicked : ''}`}
           onClick={handleClick}
         >
-          <Image src="/images/icon.svg" alt="Icon" width={30} height={30} />
+          <Image src="/images/apps.svg" alt="Icon" width={20} height={20} />
         </button>
         <div className={styles.logoContainer}>
-          <Image src="/images/logo.svg" alt="Logo" width={100} height={100} />
+          <Image src="/images/logo.svg" alt="Logo" width={50} height={50} />
         </div>
       </div>
     </header>
