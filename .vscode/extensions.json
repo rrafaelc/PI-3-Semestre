@@ -7,6 +7,6 @@
     "mikestead.dotenv",
     "prisma.prisma",
     "dsznajder.es7-react-js-snippets",
-    "ms-vscode-remote.remote-wsl"
+    "mongodb.mongodb-vscode"
   ]
 }

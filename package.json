@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "lint-staged": "^15.2.2",
+    "mongoose": "^8.4.0",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18"
@@ -47,4 +48,3 @@
     ]
   }
 }
-
