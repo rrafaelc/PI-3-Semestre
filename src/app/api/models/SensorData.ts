@@ -1,4 +1,4 @@
-import mongoose, { Schema } from 'mongoose';
+import mongoose, { Model, Schema } from 'mongoose';
 
 export interface ISensorData {
   _id: string;
@@ -18,6 +18,7 @@ const sensorDataSchema = new Schema<ISensorData>(
   { timestamps: true },
 );
 
-const SensorData = mongoose.models.sensorData || mongoose.model('sensorData', sensorDataSchema);
+const SensorData: Model<ISensorData> =
+  mongoose.models.sensorData || mongoose.model('sensorData', sensorDataSchema);
 
 export default SensorData;

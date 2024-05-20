@@ -1,12 +1,42 @@
-import { getSensorData } from '@/_actions/sensorDataActions';
+'use client';
 
-export default async function Teste() {
-  const { data, errMsg } = await getSensorData();
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { ISensorData } from '../api/models/SensorData';
 
-  if (errMsg) return <h1>Ocorreu um erro: {errMsg}</h1>;
+export default function Teste() {
+  const [data, setData] = useState<ISensorData[] | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('/api/sensor');
+        setData(response.data);
+      } catch (error: any) {
+        console.error('Error fetching data:', error);
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading)
+    return <div className="flex justify-center items-center h-screen">Carregando...</div>;
+
+  if (error)
+    <div>
+      <h1>Ocorreu um erro!</h1>
+      <p>Mensagem: {error}</p>
+    </div>;
 
   return (
-    <main className="flex flex-col items-center justify-center my-20 gap-5">
+    <div className="flex flex-col items-center justify-center my-20 gap-5">
+      <h1>Dados do Sensor</h1>
       {data &&
         data.map((item) => (
           <div key={item._id}>
@@ -17,6 +47,6 @@ export default async function Teste() {
             <p>Nível: {item.level}</p>
           </div>
         ))}
-    </main>
+    </div>
   );
 }
