@@ -2,18 +2,18 @@
 
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { ISensorData } from '../api/models/SensorData';
+import { ISensor } from '../api/sensor/route';
 
 export default function MongoDB() {
-  const [data, setData] = useState<ISensorData[] | null>(null);
+  const [sensor, setSensor] = useState<ISensor | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/api/sensor');
-        setData(response.data);
+        const response = await axios.get<ISensor>('/api/sensor');
+        setSensor(response.data);
       } catch (error: any) {
         console.error('Error fetching data:', error);
         setError(error.message);
@@ -29,16 +29,24 @@ export default function MongoDB() {
     return <div className="flex justify-center items-center h-screen">Carregando...</div>;
 
   if (error)
-    <div>
-      <h1>Ocorreu um erro!</h1>
-      <p>Mensagem: {error}</p>
-    </div>;
+    return (
+      <div>
+        <h1>Ocorreu um erro!</h1>
+        <p>Mensagem: {error}</p>
+      </div>
+    );
 
+  if (!sensor)
+    return (
+      <div>
+        <h1>Sensor não encontrado!</h1>
+      </div>
+    );
   return (
     <div className="flex flex-col items-center justify-center my-20 gap-5">
-      <h1>Dados do Sensor</h1>
-      {data &&
-        data.map((item) => (
+      <h1>Dados do Sensor: {sensor.model}</h1>
+      {sensor &&
+        sensor.sensor_data.map((item) => (
           <div key={item._id}>
             <p>ID: {item._id}</p>
             <p>Sensor ID: {item.sensor_id}</p>

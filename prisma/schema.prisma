@@ -20,3 +20,9 @@ model User {
   password String
   isActive Boolean @default(true)
 }
+
+model Sensor {
+  id       String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  model    String
+  isActive Boolean @default(true)
+}
