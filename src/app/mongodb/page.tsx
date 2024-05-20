@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { ISensorData } from '../api/models/SensorData';
 
-export default function Teste() {
+export default function MongoDB() {
   const [data, setData] = useState<ISensorData[] | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
