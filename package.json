@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint src --ext ts,tsx,js,jsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint src --ext js,jsx,ts,tsx --fix",
@@ -20,10 +20,8 @@
     "@fontsource/roboto": "^5.0.13",
     "@mui/icons-material": "^5.15.18",
     "@mui/material": "^5.15.18",
-    "@prisma/client": "^5.14.0",
     "axios": "^1.7.0",
     "lint-staged": "^15.2.2",
-    "mongoose": "^8.4.0",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18"
@@ -39,7 +37,6 @@
     "husky": "^9.0.11",
     "postcss": "^8",
     "prettier": "^3.2.5",
-    "prisma": "^5.14.0",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   },
