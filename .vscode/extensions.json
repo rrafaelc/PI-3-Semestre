@@ -7,6 +7,10 @@
     "mikestead.dotenv",
     "prisma.prisma",
     "dsznajder.es7-react-js-snippets",
-    "mongodb.mongodb-vscode"
+    "mongodb.mongodb-vscode",
+    "mhutchie.git-graph",
+    "eamodio.gitlens",
+    "oderwat.indent-rainbow",
+    "pkief.material-icon-theme"
   ]
 }

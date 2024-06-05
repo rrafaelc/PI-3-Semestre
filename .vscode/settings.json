@@ -1,5 +1,6 @@
 {
   "editor.formatOnSave": true,
+  "explorer.compactFolders": false,
   "editor.codeActionsOnSave": {
     "source.organizeImports": "explicit"
   },
@@ -30,5 +31,9 @@
     },
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "files.eol": "\r\n"
-  }
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "files.eol": "\r\n"
+  },
 }
