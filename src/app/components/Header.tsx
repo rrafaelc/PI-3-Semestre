@@ -34,6 +34,11 @@ export default function Header() {
         ) : (
           <Link href="/login">Login</Link>
         )}
+        {isLoggedIn ? (
+          <button onClick={handleLogout}>Logout</button>
+        ) : (
+          <Link href="/sobre">Sobre</Link>
+        )}
       </nav>
     </header>
   );
