@@ -1,17 +1,15 @@
-// pages/index.tsx
-import Head from 'next/head';
-import MapComponent from './mapa';
+// src/pages/index.tsx
+import dynamic from 'next/dynamic';
 
-export default function Mapa() {
+const MapComponent = dynamic(() => import('./mapa'), { ssr: false });
+
+const HomePage = () => {
   return (
-    <>
-      <Head>
-        <title>Leaflet Map with Next.js</title>
-        <meta name="description" content="Integrating Leaflet map in Next.js" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <div>Página mapa</div>
+    <div>
+      <h1>Mapa com Leaflet</h1>
       <MapComponent />
-    </>
+    </div>
   );
-}
+};
+
+export default HomePage;

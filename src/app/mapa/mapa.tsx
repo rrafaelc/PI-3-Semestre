@@ -1,3 +1,4 @@
+// src/components/MapComponent.tsx
 'use client';
 
 import L from 'leaflet';
@@ -8,8 +9,7 @@ import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 // Coordenadas para o centro do mapa
 const position: [number, number] = [-22.431174768380146, -46.82690373056951];
 
-// Remover ícones padrão do Leaflet para evitar erros de carregamento de imagens
-delete L.Icon.Default.prototype._getIconUrl;
+// Configuração dos ícones padrão do Leaflet
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
   iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
@@ -17,11 +17,11 @@ L.Icon.Default.mergeOptions({
 });
 
 const MapComponent: FC = () => {
-  // Ajuste o tamanho do mapa para ser responsivo
   const mapStyle = {
     height: '400px',
-    width: '500px',
-    margin: 'auto', // centralizar
+    width: '100%', // Tornar o mapa responsivo
+    maxWidth: '500px',
+    margin: 'auto', // Centralizar
   };
 
   return (
