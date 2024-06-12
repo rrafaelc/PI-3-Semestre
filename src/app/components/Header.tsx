@@ -29,15 +29,11 @@ export default function Header() {
       </Link>
       <nav className="flex-1 flex justify-end gap-5 pr-5">
         <Link href="/">Página Inicial</Link>
+        <Link href="/sobre">Sobre</Link>
         {isLoggedIn ? (
           <button onClick={handleLogout}>Logout</button>
         ) : (
           <Link href="/login">Login</Link>
-        )}
-        {isLoggedIn ? (
-          <button onClick={handleLogout}>Logout</button>
-        ) : (
-          <Link href="/sobre">Sobre</Link>
         )}
       </nav>
     </header>
