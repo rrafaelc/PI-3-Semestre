@@ -3,6 +3,7 @@
 import { clearStorage } from '@/app/utils/clearStorage';
 import { API_URL } from '@/app/utils/constants';
 import { isTokenExpired } from '@/app/utils/isTokenExpired';
+import { level } from '@/app/utils/level';
 import { Button, CircularProgress, Grid, Paper, Typography } from '@mui/material';
 import axios from 'axios';
 import { useEffect, useRef, useState } from 'react';
@@ -175,7 +176,7 @@ const Page = ({ params }: Props) => {
               <Grid item xs={12} sm={6} md={4} key={`${data._id}${Math.random()}`}>
                 <Paper className="p-3 bg-[#001C39] shadow-md text-white">
                   <Typography variant="body1" className="mb-2">
-                    Nível: {data.level}
+                    Nível: {data.level ?? level()}
                   </Typography>
                   <Typography variant="body1" className="mb-2">
                     Rua: {data.location.logradouro}
