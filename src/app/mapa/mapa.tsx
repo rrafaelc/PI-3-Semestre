@@ -1,15 +1,19 @@
-// src/components/MapComponent.tsx
 'use client';
 
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { FC } from 'react';
+import { FC, useEffect, useRef } from 'react';
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import { useMap as useMapContext } from '../mapa/MapContext';
 
-// Coordenadas para o centro do mapa
-const position: [number, number] = [-22.431174768380146, -46.82690373056951];
+const initialPosition: [number, number] = [-22.431174768380146, -46.82690373056951];
+const positions: [number, number][] = [
+  [-22.430574, -46.827593], // Ponto 1
+  [-22.429774, -46.825493], // Ponto 2
+  [-22.431974, -46.828993], // Ponto 3
+  [-22.432374, -46.826193], // Ponto 4
+];
 
-// Configuração dos ícones padrão do Leaflet
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
   iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
@@ -17,21 +21,41 @@ L.Icon.Default.mergeOptions({
 });
 
 const MapComponent: FC = () => {
-  const mapStyle = {
-    height: '400px',
-    width: '100%', // Tornar o mapa responsivo
-    maxWidth: '500px',
-    margin: 'auto', // Centralizar
+  const { markerPosition } = useMapContext();
+  const map = useRef<L.Map | null>(null);
+
+  useEffect(() => {
+    if (map.current) {
+      map.current.setView(markerPosition, 16);
+    }
+  }, [markerPosition]);
+
+  const mapStyle: React.CSSProperties = {
+    height: '600px',
+    width: '1400px',
+    margin: 'auto',
+  };
+
+  const handleMapReady = (mapInstance: L.Map) => {
+    map.current = mapInstance;
   };
 
   return (
-    <MapContainer center={position} zoom={13} style={mapStyle}>
+    <MapContainer
+      center={initialPosition}
+      zoom={16}
+      style={mapStyle}
+      whenReady={(event: L.LeafletEvent) => handleMapReady(event.target as L.Map)}
+    >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      <Marker position={position}>
-        <Popup>
-          Você está aqui! <br /> Coordenadas: (-22.43117, -46.82690)
-        </Popup>
-      </Marker>
+      {positions.map((position, index) => (
+        <Marker key={index} position={position}>
+          <Popup>
+            Sensor {index + 1} <br /> Coordenadas: {position[0].toFixed(5)},{' '}
+            {position[1].toFixed(5)}
+          </Popup>
+        </Marker>
+      ))}
     </MapContainer>
   );
 };
