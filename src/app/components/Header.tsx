@@ -3,6 +3,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { clearStorage } from '../utils/clearStorage';
+import { isTokenExpired } from '../utils/isTokenExpired';
 import HeaderIcon from './HeaderIcon';
 
 export default function Header() {
@@ -10,11 +12,21 @@ export default function Header() {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    setIsLoggedIn(!!token);
+
+    if (token) {
+      if (isTokenExpired()) {
+        clearStorage();
+        setIsLoggedIn(false);
+      } else {
+        setIsLoggedIn(true);
+      }
+    } else {
+      clearStorage();
+    }
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
+    clearStorage();
     setIsLoggedIn(false);
 
     window.location.href = '/';

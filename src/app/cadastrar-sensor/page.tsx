@@ -2,7 +2,9 @@
 import { Button, CircularProgress, TextField } from '@mui/material';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { clearStorage } from '../utils/clearStorage';
 import { API_URL } from '../utils/constants';
+import { isTokenExpired } from '../utils/isTokenExpired';
 import './cadastrar-sensor.css';
 
 const CadastrarSensor = () => {
@@ -13,7 +15,14 @@ const CadastrarSensor = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    if (!token) {
+
+    if (token) {
+      if (isTokenExpired()) {
+        clearStorage();
+        window.location.href = '/login';
+      }
+    } else {
+      clearStorage();
       window.location.href = '/login';
     }
   }, []);
