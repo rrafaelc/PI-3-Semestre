@@ -1,0 +1,41 @@
+name: Run Cypress Header Test
+
+on:
+  push:
+    branches:
+      - main
+      - 'feature/*'
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20.13.1'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Disable husky prepare script
+      run: npm pkg delete scripts.prepare
+
+    - name: Build the project
+      run: npm run build
+
+    - name: Start application
+      run: npm start &
+
+    - name: Wait for application to be ready
+      run: npx wait-on http://localhost:3000
+
+    - name: Run Cypress tests
+      run: npx cypress run --spec cypress/e2e/header.cy.js

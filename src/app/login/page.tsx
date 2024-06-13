@@ -12,7 +12,9 @@ import {
 import axios from 'axios';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { clearStorage } from '../utils/clearStorage';
 import { API_URL } from '../utils/constants';
+import { isTokenExpired } from '../utils/isTokenExpired';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -22,8 +24,15 @@ const LoginPage = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
+
     if (token) {
-      window.location.href = '/';
+      if (isTokenExpired()) {
+        clearStorage();
+      } else {
+        window.location.href = '/';
+      }
+    } else {
+      clearStorage();
     }
   }, []);
 
@@ -37,7 +46,9 @@ const LoginPage = () => {
         password,
       });
       const token = response.data.access_token;
+      const expires_at = response.data.expires_at;
       localStorage.setItem('token', token);
+      localStorage.setItem('expires_at', expires_at);
       window.location.href = '/';
     } catch (err) {
       setError('Falha na autenticação. Verifique suas credenciais.');
