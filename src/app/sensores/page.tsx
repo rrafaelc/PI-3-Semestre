@@ -41,14 +41,16 @@ const Sensores = () => {
         <Grid container spacing={3}>
           {sensores.map((sensor: any) => (
             <Grid item xs={12} sm={6} md={4} key={sensor.id}>
-              <Paper className="p-3 bg-[#001C39] shadow-md text-white">
-                <Typography variant="h5" className="mb-2">
-                  Nome: {sensor.name}
-                </Typography>
-                <Typography variant="body1" className="mb-2">
-                  Modelo: {sensor.model}
-                </Typography>
-              </Paper>
+              <a href={`/sensores/${sensor.id}`}>
+                <Paper className="p-3 bg-[#001C39] shadow-md text-white">
+                  <Typography variant="h5" className="mb-2">
+                    Nome: {sensor.name}
+                  </Typography>
+                  <Typography variant="body1" className="mb-2">
+                    Modelo: {sensor.model}
+                  </Typography>
+                </Paper>
+              </a>
             </Grid>
           ))}
         </Grid>
