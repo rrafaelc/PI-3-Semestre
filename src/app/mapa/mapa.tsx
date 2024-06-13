@@ -3,7 +3,7 @@
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { FC, useEffect, useRef } from 'react';
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet';
 import { useMap as useMapContext } from '../mapa/MapContext';
 
 const initialPosition: [number, number] = [-22.431174768380146, -46.82690373056951];
@@ -22,11 +22,11 @@ L.Icon.Default.mergeOptions({
 
 const MapComponent: FC = () => {
   const { markerPosition } = useMapContext();
-  const map = useRef<L.Map | null>(null);
+  const mapRef = useRef<L.Map | null>(null);
 
   useEffect(() => {
-    if (map.current) {
-      map.current.setView(markerPosition, 16);
+    if (mapRef.current) {
+      mapRef.current.setView(markerPosition, 16);
     }
   }, [markerPosition]);
 
@@ -36,17 +36,19 @@ const MapComponent: FC = () => {
     margin: 'auto',
   };
 
-  const handleMapReady = (mapInstance: L.Map) => {
-    map.current = mapInstance;
+  const SetMapRef: FC = () => {
+    const map = useMap();
+    useEffect(() => {
+      if (mapRef.current === null) {
+        mapRef.current = map;
+      }
+    }, [map]);
+    return null;
   };
 
   return (
-    <MapContainer
-      center={initialPosition}
-      zoom={16}
-      style={mapStyle}
-      whenReady={(event: L.LeafletEvent) => handleMapReady(event.target as L.Map)}
-    >
+    <MapContainer center={initialPosition} zoom={16} style={mapStyle}>
+      <SetMapRef />
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       {positions.map((position, index) => (
         <Marker key={index} position={position}>
