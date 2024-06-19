@@ -30,10 +30,15 @@ const CardComponent: React.FC<CardComponentProps> = ({
     >
       <CardActionArea className="flex flex-col h-full">
         <CardContent className={`p-4 ${bgColor} flex-grow`}>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography
+            className="font-semi-bold text-white"
+            gutterBottom
+            variant="h5"
+            component="div"
+          >
             {title}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" className="font-bold text-white" color="text.secondary">
             {description}
           </Typography>
         </CardContent>

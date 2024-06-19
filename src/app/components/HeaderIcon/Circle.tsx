@@ -5,7 +5,7 @@ interface CircleProps {
 
 export default function Circle({ size, color }: CircleProps) {
   const widthHeight = size ? size : 4;
-  const bgColor = color ? color : '#ACACAC';
+  const bgColor = color ? color : '#F8F8F8';
 
   return (
     <div
