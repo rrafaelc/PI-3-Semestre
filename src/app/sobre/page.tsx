@@ -75,15 +75,6 @@ export default function FixedContainer() {
                   soluções eficazes. Acreditamos que, através da tecnologia e da ciência, podemos
                   fazer a diferença e promover um ambiente mais saudável para todos.
                 </Typography>
-                <Typography variant="subtitle1" gutterBottom>
-                  Compromisso com a Comunidade
-                </Typography>
-                <Typography variant="body1" gutterBottom>
-                  Nosso compromisso é com a transparência e a melhoria contínua. Estamos
-                  constantemente aprimorando nossos métodos e expandindo nossa rede de monitoramento
-                  para fornecer informações precisas e relevantes à comunidade. Junte-se a nós nesta
-                  jornada para um futuro mais limpo e saudável!
-                </Typography>
               </Item>
             </ThemeProvider>
 
