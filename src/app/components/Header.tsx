@@ -53,7 +53,7 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-[#001C39] text-white h-[40px] flex items-center justify-between px-5">
+    <header className="bg-[#001C39] text-white h-[40px] flex items-center justify-between px-5 fixed w-full z-50">
       <a href="/" className="flex items-center gap-2">
         <Image src="/images/logo.png" alt="Logo" width="33" height="33" />
         <p>Respire Bem</p>
@@ -63,7 +63,7 @@ export default function Header() {
           <HeaderIcon />
         </button>
         {isMenuOpen && (
-          <nav className="absolute right-0 mt-2 bg-white text-black p-5 rounded shadow-lg z-10">
+          <nav className="absolute right-0 mt-2 bg-white text-black p-5 rounded shadow-lg z-50">
             <a href="/" className="block mb-2">
               Página Inicial
             </a>
