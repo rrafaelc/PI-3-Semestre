@@ -88,7 +88,7 @@ export default function FixedContainer() {
                 </Typography>
                 <Typography variant="body1" gutterBottom>
                   Nosso principal objetivo é fornecer informações acessíveis sobre a qualidade do ar
-                  que respiramos diariamente
+                  que respiramos diariamente.
                 </Typography>
                 <Typography variant="subtitle1" gutterBottom>
                   Ação Concreta
