@@ -9,6 +9,7 @@ import HeaderIcon from './HeaderIcon';
 export default function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -42,6 +43,22 @@ export default function Header() {
     };
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (width > 700) setIsMenuOpen(false);
+  }, [width]);
+
   const handleLogout = () => {
     clearStorage();
     setIsLoggedIn(false);
@@ -52,7 +69,7 @@ export default function Header() {
     setIsMenuOpen((prevState) => !prevState);
   };
 
-  return (
+  return width < 700 ? (
     <header className="bg-[#001C39] text-white h-[40px] flex items-center justify-between px-5 fixed w-full z-50">
       <a href="/" className="flex items-center gap-2">
         <Image src="/images/logo.png" alt="Logo" width="33" height="33" />
@@ -88,6 +105,20 @@ export default function Header() {
           </nav>
         )}
       </div>
+    </header>
+  ) : (
+    <header className="bg-[#001C39] text-white h-[40px] flex items-center gap-5 px-2">
+      <a href="/" className="flex items-center gap-2">
+        <Image src="/images/logo.png" alt="Logo" width="33" height="33" />
+        <p>Respire Bem</p>
+      </a>
+      <nav className="flex-1 flex justify-end gap-5 pr-5">
+        <a href="/">Página Inicial</a>
+        <a href="/cadastrar-sensor">Cadastrar Sensor</a>
+        <a href="/sensores">Sensores</a>
+        <a href="/sobre">Sobre</a>
+        {isLoggedIn ? <button onClick={handleLogout}>Logout</button> : <a href="/login">Login</a>}
+      </nav>
     </header>
   );
 }

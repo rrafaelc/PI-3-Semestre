@@ -10,7 +10,6 @@ import {
   Typography,
 } from '@mui/material';
 import axios from 'axios';
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { clearStorage } from '../utils/clearStorage';
 import { API_URL } from '../utils/constants';
@@ -58,17 +57,20 @@ const LoginPage = () => {
   };
 
   return (
-    <Container maxWidth="sm" className="mt-10 p-5 bg-white shadow-lg rounded-lg">
+    <Container
+      maxWidth="sm"
+      className="mt-[10%] p-5 shadow-lg rounded-lg"
+      style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}
+    >
       <Box
         className="flex flex-col items-center"
         sx={{
-          marginTop: 8,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
         }}
       >
-        <Typography component="h1" variant="h5" className="mb-5">
+        <Typography component="h1" variant="h4" className="mb-5">
           Login
         </Typography>
         {error && (
@@ -113,14 +115,12 @@ const LoginPage = () => {
             type="submit"
             fullWidth
             variant="contained"
-            className="mt-3 mb-4"
+            className="mt-4 mb-4"
             disabled={loading}
+            size="large"
           >
             {loading ? <CircularProgress size={24} /> : 'Entrar'}
           </Button>
-          <Link className="text-blue-500 hover:underline" href="/">
-            Voltar para a página inicial
-          </Link>
         </Box>
       </Box>
     </Container>

@@ -1,9 +1,14 @@
 .Container-CadastroSensor {
+  max-width: 700px;
   margin: 0 auto;
-  width: 50%;
-  height: 20%;
   margin-top: 10%;
   text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 50px 20px;
+  border-radius: 6px;
+}
+
+.Container-CadastroSensor h1 {
   font-size: 2.3em;
 }
 
@@ -17,10 +22,9 @@
 .botoes-CadastroSensor {
   display: flex;
   justify-content: space-around;
-  margin-top: 5%;
 }
 
-@media (max-width: 460px) {
+@media (max-width: 600px) {
   .botoes-CadastroSensor {
     flex-direction: column;
     gap: 10px;

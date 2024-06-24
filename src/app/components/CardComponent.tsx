@@ -26,6 +26,7 @@ const CardComponent: React.FC<CardComponentProps> = ({
     <Card
       sx={{ maxWidth: 345 }}
       className="m-2 flex flex-col justify-between"
+      style={{ backgroundColor: bgColor.match(/bg-\[(#[0-9a-fA-F]{6})\]/)?.[1] || 'defaultColor' }}
       onClick={handleClick}
     >
       <CardActionArea className="flex flex-col h-full">
@@ -35,10 +36,16 @@ const CardComponent: React.FC<CardComponentProps> = ({
             gutterBottom
             variant="h5"
             component="div"
+            style={{ color: '#fff' }}
           >
             {title}
           </Typography>
-          <Typography variant="body2" className="font-bold text-white" color="text.secondary">
+          <Typography
+            variant="body2"
+            className="font-bold text-white"
+            color="text.secondary"
+            style={{ color: '#fff' }}
+          >
             {description}
           </Typography>
         </CardContent>
