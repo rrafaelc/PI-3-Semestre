@@ -9,7 +9,7 @@ import HeaderIcon from './HeaderIcon';
 export default function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [width, setWidth] = useState(window.innerWidth);
+  const [width, setWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
