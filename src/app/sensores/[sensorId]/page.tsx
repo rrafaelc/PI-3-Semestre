@@ -134,7 +134,7 @@ const Page = ({ params }: Props) => {
   };
 
   return (
-    <div className="container mx-auto mt-10 p-2">
+    <div className="container mx-auto mt-10 mb-5 p-4 bg-white rounded">
       <Typography variant="h4" className="mb-5">
         Últimos dados do sensor: {sensor.name}
       </Typography>
@@ -174,7 +174,10 @@ const Page = ({ params }: Props) => {
           <Grid container spacing={3}>
             {sensorData.map((data: any) => (
               <Grid item xs={12} sm={6} md={4} key={`${data._id}${Math.random()}`}>
-                <Paper className="p-3 bg-[#001C39] shadow-md text-white">
+                <Paper
+                  className="p-3 shadow-md"
+                  style={{ backgroundColor: '#001C39', color: '#fff' }}
+                >
                   <Typography variant="body1" className="mb-2">
                     Nível: {data.level ?? level()}
                   </Typography>

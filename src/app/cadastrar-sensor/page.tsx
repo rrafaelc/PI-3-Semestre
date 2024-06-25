@@ -50,7 +50,7 @@ const CadastrarSensor = () => {
 
   return (
     <div className="Container-CadastroSensor">
-      <p>Cadastrar sensor</p>
+      <h1>Cadastrar sensor</h1>
       <div className="form-CadastroSensor">
         <TextField
           id="standard-multiline-flexible"
@@ -76,7 +76,7 @@ const CadastrarSensor = () => {
           <Button variant="contained" color="success" onClick={handleCreateSensor}>
             {loading ? <CircularProgress size={24} /> : 'Confirmar'}
           </Button>
-          <Button onClick={() => (window.location.href = '/')} variant="outlined" color="error">
+          <Button onClick={() => (window.location.href = '/')} variant="contained" color="error">
             Cancelar
           </Button>
         </div>

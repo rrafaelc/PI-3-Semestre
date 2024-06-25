@@ -7,10 +7,9 @@ const MapComponent = dynamic(() => import('./mapa/mapa'), { ssr: false });
 const Home: React.FC = () => {
   return (
     <MapProvider>
-      <main className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-5">
-        <div className="bg-gray-100 p-4 rounded-lg shadow-md">
-          <h1 className="text-center text-2xl font-bold my-4">Mapa</h1>
-          <h2 className="text-center text-1xl font-bold my-4">Cidade de Itapira</h2>
+      <main className="flex flex-col items-center justify-center min-h-screen p-5 mt-3">
+        <div className="p-4">
+          <h1 className="text-center text-2xl font-bold mb-3">Mapa - Cidade de Itapira</h1>
           <MapComponent />
         </div>
         <br></br>
